@@ -1,0 +1,49 @@
+//JAVA
+class StackForMin {
+    int top;
+    int[] arr;
+    int min = Integer.MAX_VALUE;
+
+    StackForMin() {
+        top = -1;
+        arr = new int[10];
+    }
+
+    void push(int value) throws Exception {
+        if (top == 10 - 1)
+            throw new Exception("Overflow");
+        arr[++top] = value;
+        if (min > value)
+            min = value;
+    }
+
+    int pop() throws Exception {
+        if (top < 0)
+            throw new Exception("Underflow");
+        return arr[top--];
+    }
+
+    int peek() {
+        return arr[top];
+    }
+
+    boolean isEmpty() {
+        return top < 0;
+    }
+
+    int getMin() throws Exception {
+        return min;
+    }
+}
+
+public class FindingMinValueInStack {
+    public static void main(String[] args) throws Exception {
+        StackForMin stack = new StackForMin();
+        stack.push(10);
+        stack.push(7);
+        stack.push(12);
+        stack.push(15);
+        System.out.println(stack.getMin());
+        
+    }
+}
