@@ -1,0 +1,16 @@
+import java.util.*;
+
+public class AdditionUnderModulo {
+    private static long sumUnderModulo(long a, long b) {
+        long M = 1000000007;
+        return (a % M + b % M) > M ? (a % M + b % M) % M : (a % M + b % M);
+    }
+
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        long a = s.nextLong();
+        long b = s.nextLong();
+        System.out.println(sumUnderModulo(a, b));
+
+    }
+}
